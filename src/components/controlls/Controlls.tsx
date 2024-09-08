@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useRef, useState } from "react";
+import { ChangeEvent, FC, useEffect, useRef, useState } from "react";
 
 import s from "./Controlls.module.sass";
 import { useFrames } from "$hooks/useFrames";
@@ -44,11 +44,22 @@ export const Controlls: FC = () => {
     setMoved(performance.now());
   };
 
+  useEffect(() => {
+    if (!video.current)
+      return;
+    var defaultValue = video.current.controls;
+    video.current.controls = false;
+
+    return () => {
+      if (!video.current) return;
+      video.current.controls = defaultValue;
+    };
+  });
+
   useFrames((_, time) => {
     if (!video.current || !range.current)
       return;
 
-    video.current.controls = false;
     range.current.max = `${video.current.duration}`;
     range.current.value = `${video.current.currentTime}`;
 

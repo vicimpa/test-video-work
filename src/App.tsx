@@ -9,14 +9,12 @@ import { ViewEventZones } from "$components/vieweventzone";
 export const App = () => {
 
   return (
-    <>
+    <EventsProvider data={eventsSrc}>
       <Player src={videoSrc} width={600} height={300}>
-        <EventsProvider data={eventsSrc}>
-          <ViewEventZones />
-          <Controlls />
-          <EventList />
-        </EventsProvider>
+        <ViewEventZones />
+        <Controlls />
+        <EventList />
       </Player>
-    </>
+    </EventsProvider>
   );
 };
