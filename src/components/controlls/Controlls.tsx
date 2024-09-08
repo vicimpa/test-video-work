@@ -5,7 +5,7 @@ import { useFrames } from "$hooks/useFrames";
 import { usePlayerRef } from "$components/player";
 
 export const Controlls: FC = () => {
-  const ref = useRef<HTMLInputElement>(null);
+  const range = useRef<HTMLInputElement>(null);
   const button = useRef<HTMLButtonElement>(null);
   const video = usePlayerRef();
 
@@ -39,11 +39,12 @@ export const Controlls: FC = () => {
   };
 
   useFrames(() => {
-    if (!video.current || !ref.current)
+    if (!video.current || !range.current)
       return;
 
-    ref.current.max = `${video.current.duration}`;
-    ref.current.value = `${video.current.currentTime}`;
+    video.current.controls = false;
+    range.current.max = `${video.current.duration}`;
+    range.current.value = `${video.current.currentTime}`;
 
     if (!button.current)
       return;
@@ -57,7 +58,6 @@ export const Controlls: FC = () => {
     <div className={s.controlls} onClick={playPause}>
       <div className={s.pannel}>
         <div style={{ display: 'contents' }} onClick={e => e.stopPropagation()}>
-
           <button ref={button} onClick={playPause}>
             Loading...
           </button>
@@ -65,7 +65,7 @@ export const Controlls: FC = () => {
             type="range"
             style={{ flexGrow: 1 }}
             onChange={changeValue}
-            ref={ref}
+            ref={range}
             step={0.001} />
           <button onClick={toggleFullscreen}>
             ⛶
