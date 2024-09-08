@@ -1,0 +1,58 @@
+
+.button
+  position: absolute
+  top: 5px
+  right: 5px
+  pointer-events: all
+  cursor: pointer
+  background-color: #fff
+  border: none
+  padding: 0
+  width: 20px
+  height: 20px
+  border-radius: 100%
+
+.back
+  position: absolute
+  inset: 0
+  background-color: rgba(0,0,0,0)
+  backdrop-filter: blur(0px)
+
+  transition: 0.3s
+
+  &[data-show]
+    pointer-events: all
+    background-color: rgba(0,0,0,0.4)
+    backdrop-filter: blur(3px)
+
+.list
+  --size: 100px
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  width: var(--size)
+  pointer-events: all
+  background-color: #222
+  box-shadow: 0 0 10px #000
+  transform: translateX(var(--size))
+  transition: 0.3s
+
+  &[data-show]
+    transform: translateX(0px)
+
+  .content
+    position: absolute
+    inset: 0
+    overflow-y: scroll
+    display: flex
+    flex-direction: column
+    gap: 3px
+
+    button
+      cursor: pointer
+      text-align: right
+      background: #444
+      border: none
+      color: #fff
+      font-weight: 600
