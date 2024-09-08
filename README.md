@@ -1,9 +1,11 @@
 # Тестовое задание (разработчик web frontend)
 Есть список событий аналитики с таймстемпами (временем в миллисекундах от начала видео) и данными о
 зоне в кадре, в которой событие возникло (координаты в пикселях):
+
 [https://5025y.wiremockapi.cloud/json/1](https://5025y.wiremockapi.cloud/json/1)
 
 Адрес тестового видеопотока:
+
 [http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4](http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4)
 
 ### Необходимо реализовать веб-приложение, обладающее следующим функционалом:
@@ -42,7 +44,8 @@
 
 
 ### Публикация
-Опубликовал на `GitHub Pages` и посмотреть можно [тут](https://vicimpa.github.io/test-video-work)
+Опубликовал на `GitHub Pages` и посмотреть можно тут:
+[https://vicimpa.github.io/test-video-work](https://vicimpa.github.io/test-video-work)
 
 ### Для дев запуска
 ```bash
