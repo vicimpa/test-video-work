@@ -9,12 +9,15 @@ import { ViewEventZones } from "$components/vieweventzone";
 export const App = () => {
 
   return (
-    <EventsProvider data={eventsSrc}>
-      <Player src={videoSrc} width={600} height={300}>
-        <ViewEventZones />
-        <Controlls />
-        <EventList />
-      </Player>
-    </EventsProvider>
+    <>
+      <EventsProvider data={eventsSrc}>
+        <Player src={videoSrc} width={600} height={300}>
+          <ViewEventZones />
+          <Controlls />
+          <EventList />
+        </Player>
+      </EventsProvider>
+      <a href="https://github.com/vicimpa/test-video-work" target="BLANK">Link to GitHub</a>
+    </>
   );
 };
