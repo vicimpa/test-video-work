@@ -6,7 +6,7 @@ import { usePlayerRef } from "$components/player";
 
 const formatTime = (n = 0) => {
   let ceil = Math.floor(n);
-  var milliseconds = `${(n - ceil) * 100 | 0}`.padStart(3, '0');
+  var milliseconds = `${(n - ceil) * 1000 | 0}`.padStart(3, '0');
   let seconds = `${(ceil % 60) | 0}`.padStart(2, '0');
   let minutes = `${(ceil / 60) % 60 | 0}`.padStart(2, '0');
 
@@ -30,13 +30,16 @@ export const EventList = () => {
         <div className={s.content}>
           {
             resultSort.map((event, index) => (
-              <button key={index} onClick={() => {
-                if (video.current) {
-                  video.current.pause();
-                  video.current.currentTime = event.timestamp;
-                }
-                setShow(false);
-              }}>
+              <button
+                key={index}
+                onClick={() => {
+                  if (video.current) {
+                    video.current.pause();
+                    video.current.currentTime = event.timestamp;
+                  }
+                  setShow(false);
+                }}
+              >
                 {formatTime(event.timestamp)}
               </button>
             ))

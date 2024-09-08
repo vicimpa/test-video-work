@@ -30,7 +30,7 @@ export const Player: FC<TPlayerProps> = ({
 
   return (
     <div className={s.container} ref={ref} style={{ width, height }}>
-      <video src={src} ref={video} />
+      <video src={src} ref={video} controls />
       <div className={s.overlay}>
         <PlayerContext.Provider value={video}>
           {children}
